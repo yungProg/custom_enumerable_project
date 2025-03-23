@@ -1,8 +1,18 @@
+# frozen_string_literal: true
+
+# module mimic built-in Enumerable module
 module Enumerable
   # Your code goes here
   def my_all?
-    self.my_each do | element |
+    my_each do |element|
       return false unless yield(element)
+    end
+    true
+  end
+
+  def my_none?
+    my_each do |element|
+      return false if yield(element)
     end
     true
   end
@@ -15,7 +25,7 @@ end
 class Array
   # Define my_each here
   def my_each
-    for element in self
+    for element in self # rubocop:disable Style/For
       yield(element)
     end
   end
