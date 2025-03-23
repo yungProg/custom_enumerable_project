@@ -1,7 +1,7 @@
 module Enumerable
   # Your code goes here
-  def my_all
-    self.each do | element |
+  def my_all?
+    self.my_each do | element |
       return false unless yield(element)
     end
     true
@@ -20,4 +20,3 @@ class Array
     end
   end
 end
-
