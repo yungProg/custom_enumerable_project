@@ -61,6 +61,14 @@ module Enumerable
     end
     value
   end
+
+  def my_each_with_index
+    index = 0
+    my_each do |element|
+      yield(element, index)
+      index += 1
+    end
+  end
 end
 
 # You will first have to define my_each
@@ -75,5 +83,3 @@ class Array
     end
   end
 end
-
-p [1, 1, 2, 3, 5, 8, 13, 21, 34].my_inject(1) {|a,b| a * b}
