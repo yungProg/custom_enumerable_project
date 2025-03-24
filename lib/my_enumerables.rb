@@ -23,6 +23,20 @@ module Enumerable
     end
     false
   end
+
+  def my_count
+    counter = 0
+    if block_given?
+      my_each do |element|
+        counter += 1 if yield(element)
+      end
+    else
+      my_each do |element|
+        counter += 1 if element
+      end
+    end
+    counter
+  end
 end
 
 # You will first have to define my_each
@@ -38,4 +52,4 @@ class Array
   end
 end
 
-puts [1,2,3].my_any? {|a| a > 2}
+puts [991,2,3].my_count {|a| a > 2}
