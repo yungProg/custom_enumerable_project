@@ -37,6 +37,14 @@ module Enumerable
     end
     counter
   end
+
+  def my_map
+    new_array = []
+    my_each do |element|
+      new_array << yield(element)
+    end
+    new_array
+  end
 end
 
 # You will first have to define my_each
@@ -52,4 +60,4 @@ class Array
   end
 end
 
-puts [991,2,3].my_count {|a| a > 2}
+p [1, 1, 2, 3, 5, 8, 13, 21, 34].my_count { |value| value == 5 }
