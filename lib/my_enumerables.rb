@@ -16,6 +16,13 @@ module Enumerable
     end
     true
   end
+
+  def my_any?
+    my_each do |element|
+      return true if yield(element)
+    end
+    false
+  end
 end
 
 # You will first have to define my_each
@@ -30,3 +37,5 @@ class Array
     end
   end
 end
+
+puts [1,2,3].my_any? {|a| a > 2}
