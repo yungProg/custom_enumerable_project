@@ -45,6 +45,14 @@ module Enumerable
     end
     new_array
   end
+
+  def my_select
+    new_array = []
+    my_each do |element|
+      new_array << element if yield(element)
+    end
+    new_array
+  end
 end
 
 # You will first have to define my_each
@@ -60,4 +68,4 @@ class Array
   end
 end
 
-p [1, 1, 2, 3, 5, 8, 13, 21, 34].my_count { |value| value == 5 }
+p [1, 1, 2, 3, 5, 8, 13, 21, 34].select
