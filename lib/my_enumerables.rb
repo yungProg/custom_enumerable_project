@@ -53,6 +53,14 @@ module Enumerable
     end
     new_array
   end
+
+  def my_inject(initial_value)
+    value = initial_value
+    my_each do |element|
+      value = yield(value, element)
+    end
+    value
+  end
 end
 
 # You will first have to define my_each
@@ -68,4 +76,4 @@ class Array
   end
 end
 
-p [1, 1, 2, 3, 5, 8, 13, 21, 34].select
+p [1, 1, 2, 3, 5, 8, 13, 21, 34].my_inject(1) {|a,b| a * b}
